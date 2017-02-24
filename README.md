@@ -1,0 +1,1 @@
+# Blog Structure depart

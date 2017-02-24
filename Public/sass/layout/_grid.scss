@@ -1,0 +1,60 @@
+@mixin responsive-col($suf: '') {
+	@for $i from 0 through $columns {
+		@if $i != 0 {
+			.col#{$suf}-#{$i}{
+				width: $i / $columns * 100%
+			}
+		}
+		.col#{$suf}-center-#{$i} { margin: 0 auto; float: none;  }
+		.col#{$suf}-push-#{$i} { left: $i / $columns * 100% }
+		.col#{$suf}-offset-#{$i} { margin-left: $i / $columns * 100% }
+		.col#{$suf}-pull-#{$i} { left: $i / $columns * 100% }
+	}
+}
+
+*{	
+	@include prefix(box-sizing,border-box);
+}
+.container {
+	padding: 0 $gutter * 0.5;
+	@extend %clearfix;
+}
+
+.row {
+	margin: 0 $gutter * -0.5;
+	@extend %clearfix;
+}
+
+@for $i from 1 through $columns {
+	.col-xs-#{$i}, .col-sm-#{$i},.col-md-#{$i},.col-lg-#{$i} {
+		@extend %col;
+	}
+}
+
+@include responsive-col('-xs');
+
+@media only screen and (min-width: 768px) {
+	.container {
+		margin: 0 auto;
+		width: 750px;
+	}
+	@include responsive-col('-sm');
+}
+
+@media only screen and (min-width: 992px) {
+	.container {
+		margin: 0 auto;
+		width: 970px;
+	}
+	@include responsive-col('-md');
+}
+
+@media only screen and (min-width: 1200px) {
+	.container {
+		margin: 0 auto;
+		width: 1170px;
+	}
+	@include responsive-col('-lg');
+}
+
+

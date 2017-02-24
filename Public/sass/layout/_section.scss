@@ -1,0 +1,151 @@
+section {
+	width: 100%;
+	padding: 50px 0px;
+	background: #fff;
+	&.stat {
+		padding: 50px 0px 30px;
+	}
+
+	&.footer {
+		padding: 20px;
+		color: #fff;
+		font-size: 1.5rem;
+		background: darken($menu-color, $amount);
+	}
+}
+
+.wrapper {
+	
+	padding: 20px;
+	margin-top: 170px;
+	background: rgba(#fff, 1);
+
+}
+
+
+.boxes {
+
+	border: 1px solid rgba(darken($menu-color, $amount), 0.5);
+	margin-bottom: 20px;
+	@extend %clearfix;
+
+	&-header {
+		padding: 10px;
+		border-bottom: 1px solid rgba(darken($menu-color, $amount), 0.5);
+	}
+
+	&-body {
+		padding: 10px;
+		& p {
+			margin: 0 0 9px;
+			margin-bottom: 8px;
+			color: #333;
+			font-size: 1.2rem;
+
+			& .strong {
+			    color: #222;
+			    float: right;
+			    font-weight: bold;
+			}
+		}
+	}
+
+	&.stat {
+		.boxes-body {
+			& p {
+				line-height: 1.5;
+			}
+		}
+	}
+
+	&.forum {
+		.boxes-header {
+			width: 100%;
+			padding: 0px;
+			background: $menu-color;
+			display: table;
+			border: none;
+
+			
+			& .left, & .right {
+				display:table-cell;
+			}
+			& .left {
+				color: #fff;
+				background: lighten($menu-color, $amount);
+				padding: 15px 16px 15px 15px;
+			}
+			& .right {
+				background: #fff;
+				color: #000;
+				font-weight: bold;
+				padding: 0px 10px;
+				font-size: 1.5rem;
+				width: 100%;
+			}
+		}
+	}
+
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background: #fff;
+}
+
+th, td {
+    text-align: left;
+    padding: 15px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: $menu-color;
+    color: white;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 7px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
+.table > tbody > tr > td {
+    border-top: none;
+}
+.table tbody tr td:first-child {
+    width: 60px;
+    background-color: rgba(#000, 0.1);
+    padding: 10px 22px;
+}
+.table > tbody > tr > td.col-md-6 {
+    padding: 12px 15px 10px 25px;
+}
+.table tbody tr {
+    background-color: $menu-color;
+    border: none;
+    color: #fff;
+}
+table td[class*=col-], table th[class*=col-] {
+    position: static;
+    display: table-cell;
+    float: none;
+}
+
+.table tbody h4 > a {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Hind', sans-serif;
+    font-size: 12px;
+}
+.table tbody tr+tr {
+    border-top: 2px solid darken($menu-color, $amount);
+}
+@media only screen and (max-width: 750px) {
+	.hidden {
+		display: none !important;
+	}
+}

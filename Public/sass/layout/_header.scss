@@ -1,0 +1,117 @@
+.content {
+	padding-top: $menu-height;
+}
+.header {
+	position: fixed;
+	left: 0;
+	right: 0;
+	height: $menu-height;
+
+	line-height: $menu-height;
+	color: #fff;
+
+	background: $menu-color;
+	z-index: 1000;
+	box-shadow: 1px 0px 20px #000;
+}
+
+.header__logo {
+	font-weight: bold;
+	padding: 0 25px;
+	float: left;
+	text-decoration: none;
+	color: darken($menu-color, $amount * 2)
+}
+
+.menu {
+	float: left;
+
+	& a {
+		padding: 0 20px;
+		float: left;
+		color: inherit;
+		text-decoration: none;
+		font-weight: bold;
+		&:hover {
+			color: darken($menu-color, $amount * 2);
+		}
+	}
+
+
+}
+
+@media only screen and (max-width: 750px) {
+	body,html {
+		overflow-x: hidden;
+		height: 100%;
+	}
+	.push, .site-hidden {
+		height: 100%;
+	}
+	.push {
+		@include prefix(transition-duration,0.3s);
+		@include prefix(transform,translateX(0px));
+	}
+	.content {
+		position: absolute;
+		top: $menu-height;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		padding-top: 0;
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
+	}
+	.header {
+		position: static;
+	}
+	.header__icon {
+		position: relative;
+		display: block;
+		float: left;
+		width: 50px;
+		height: $menu-height;
+		
+		cursor: pointer;
+
+
+		&:after {
+
+			content: '';
+			position: absolute;
+			display: block;
+			width: 1.5rem;
+			height: 0;
+			top: 16px;
+			left: 15px;
+			@include shadows(0 10px 0 1px #fff, 0 16px 0 1px #fff,0 22px 0 1px #fff);
+		}
+	}
+
+	.menu {
+		//display: none;
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+
+		background: darken($menu-color, $amount);
+
+		width: $menu-width;
+		@include prefix(transform,translateX($menu-width * -1));
+
+		a {
+			display: block;
+			height: 40px;
+			float: none;
+			text-align: center;
+			line-height: 40px;
+
+			border-bottom: 1px solid darken($menu-color, 9);
+		}
+	}
+
+	.width--sidebar {
+		.push { @include prefix(transform,translateX($menu-width)); }
+	}
+}
