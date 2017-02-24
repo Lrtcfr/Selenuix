@@ -1,14 +1,11 @@
-<?php 
-
+<?php
 	/**
 		 * [find description]
 		 * @param  array  $req [description]
 		 * @return [type]      [description]
 	 */
 	function find($req = []){
-
 		global $db;
-
 		$sql = 'SELECT ';
 
 		if (isset($req['fields'])) {
@@ -41,7 +38,6 @@
 					if (!is_numeric($v)) {
 						$v = '"'. addslashes($v). '"';
 					}
-
 					$cond[] = "$k=$v";
 				}
 				$sql .= implode(' AND ',$cond);
@@ -56,21 +52,16 @@
 			$sql .= ' LIMIT '. $req['limit'];
 		}
 
-
 		$pre = $db->prepare($sql);
 		$pre->execute();
-
 		return $pre->fetchAll(PDO::FETCH_ASSOC);
-
 	}
 
 	function findFirst($req){
 		return current(find($req));
 	}
 
-
 	function findCount($req = []){
-
 		$cond = '';
 
 		if (!isset($req['conditions'])) {
@@ -88,20 +79,17 @@
 	}
 
 	function findList($req = []) {
-
 		if (!isset($req['key'])) {
 			$req['key'] = "id";
 		}
 		if (!isset($req['fields'])) {
 			$req['fields'] = $req['key'] . ', name';
 		}
-
 		$d = find($req);
 		$r = [];
 		foreach ($d as $k=>$v) {
 			$r[current($v)] = next($v);
 		}
-
 		return $r;
 	}
 
@@ -165,8 +153,8 @@
 	}
 
 	function delete($req) {
-
 		global $db;
+		
 		if (!isset($req['key'])) {
 			$req['key'] = 'id';
 		}
@@ -174,11 +162,10 @@
 		$db->query($sql);
 	}
 	
-	function connect($arg = "local") {
-		
+	function connect($arg = "local") {		
 		global $data;
-
 		$data = $data[$arg];
+		
 		try {
 
 			$pdo = new PDO(
@@ -187,8 +174,7 @@
 				$data['pass'],
 				[PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']
 			);
-			return $pdo;
-			
+			return $pdo;			
 		} catch (PDOException $e) {
 			die('Erreur ' . $e->getMessage());
 		}

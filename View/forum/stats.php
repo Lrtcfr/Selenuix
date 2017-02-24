@@ -19,14 +19,14 @@
 					<div class="boxes-header">
 						<i class="fa fa-fw fa-circle-o"></i> Qui est en ligne
 					</div>
-					<div class="boxes-body">
-						<p>
-							Les utilisateurs enregistrés: <strong style="font-weight: bold">Aucun utilisateur enregistré</strong>
-						</p>
-						<p>
-							basé sur les utilisateurs actifs des 5 dernières minutes
-						</p>
-					</div>
+						<div class="boxes-body">
+							<p>
+								Les utilisateurs enregistrés: <strong style="font-weight: bold">Aucun utilisateur enregistré</strong>
+							</p>
+							<p>
+								basé sur les utilisateurs actifs des 5 dernières minutes
+							</p>
+						</div>
 				</div>
 			</div>
 		</div>

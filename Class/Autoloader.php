@@ -1,20 +1,13 @@
-<?php  
-
+<?php 
 /**
-* Class Autoloader
+	* Class Autoloader
 */
-class Autoloader 
-{
-
-	static function register(){
+class Autoloader {
+	static function register() {
 		spl_autoload_register([__CLASS__,'autoload']);
 	}
-
 	
-	static function autoload($class){
+	static function autoload($class) {
 		require ROOT. 'Class/'. ucfirst($class) . '.php';
 	}
 }
-
-
-

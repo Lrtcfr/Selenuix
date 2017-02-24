@@ -26,12 +26,12 @@ function remove_accent($str)
                 's', 'T', 't', 'T', 't', 'T', 't', 'U', 'u', 'U', 'u', 'U', 'u', 'U', 'u', 'U', 'u', 'U', 'u', 'W',
                 'w', 'Y', 'y', 'Y', 'Z', 'z', 'Z', 'z', 'Z', 'z', 's', 'f', 'O', 'o', 'U', 'u', 'A', 'a', 'I', 'i',
                 'O', 'o', 'U', 'u', 'U', 'u', 'U', 'u', 'U', 'u', 'U', 'u', 'A', 'a', 'AE', 'ae', 'O', 'o');
-  return str_replace($a, $b, $str);
+    return str_replace($a, $b, $str);
 }
 
 
 /* Générateur de Slug (Friendly Url) : convertit un titre en une URL conviviale.*/
 function Slug($str){
-  return mb_strtolower(preg_replace(array('/[^a-zA-Z0-9 \'-]/', '/[ -\']+/', '/^-|-$/'),
-  array('', '-', ''), remove_accent($str)));
+    return mb_strtolower(preg_replace(array('/[^a-zA-Z0-9 \'-]/', '/[ -\']+/', '/^-|-$/'),
+    array('', '-', ''), remove_accent($str)));
 }

@@ -1,8 +1,4 @@
-<?php  
-
-
+<?php
 	function index() {
-
-		render();
-		
+		render();		
 	}
