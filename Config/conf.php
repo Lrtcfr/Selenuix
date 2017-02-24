@@ -6,9 +6,9 @@ $data = array(
 	'local' => [
 
 		'host' 		=> 'localhost',
-		'base' 		=> 'fuxing',
+		'base' 		=> 'selenuix',
 		'user' 		=> 'root',
-		'pass' 		=> 'aze13a',
+		'pass' 		=> 'WorldOfTanks680',
 		'driver' 	=> 'mysql'
 
 	],
